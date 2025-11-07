@@ -85,7 +85,7 @@ export default function EmployeesListPage() {
                       <td className="px-6 py-4 whitespace-nowrap text-base font-medium text-gray-900">{employee.name}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-base text-gray-900">{employee.department}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-base text-gray-900">{employee.employmentType}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-base text-gray-900">{formatDate(employee.hireDate)}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-base text-gray-900">{employee.hireDate}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-base">
                         <Link
                           href={`/employees/${employee.id}`}
