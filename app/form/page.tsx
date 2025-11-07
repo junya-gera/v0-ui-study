@@ -159,6 +159,7 @@ export default function EventRegistrationPage() {
         {/* 参加登録フォーム */}
         <div className="bg-white rounded-lg shadow-md p-6">
           <h2 className="text-xl font-bold text-gray-900 mb-4">参加登録フォーム</h2>
+          <p className="text-gray-600 mb-4">※ 赤字は必須項目</p>
 
           {showGenericError && (
             <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-md">
@@ -169,11 +170,8 @@ export default function EventRegistrationPage() {
           <form onSubmit={handleSubmit} className="space-y-5">
             {/* 氏名 */}
             <div>
-              <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label htmlFor="name" className="block text-sm font-semibold text-red-600 mb-2">
                 氏名{" "}
-                <span className="text-red-600" aria-label="必須">
-                  *
-                </span>
               </label>
               <input
                 type="text"
@@ -190,11 +188,8 @@ export default function EventRegistrationPage() {
 
             {/* メールアドレス */}
             <div>
-              <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label htmlFor="email" className="block text-sm font-semibold text-red-600 mb-2">
                 メールアドレス{" "}
-                <span className="text-red-600" aria-label="必須">
-                  *
-                </span>
               </label>
               <input
                 type="email"
@@ -212,11 +207,8 @@ export default function EventRegistrationPage() {
             {/* 参加区分 */}
             <div>
               <fieldset>
-                <legend className="block text-sm font-semibold text-gray-700 mb-2">
+                <legend className="block text-sm font-semibold text-red-600 mb-2">
                   参加区分{" "}
-                  <span className="text-red-600" aria-label="必須">
-                    *
-                  </span>
                 </legend>
 
                 <div className="space-y-3">
