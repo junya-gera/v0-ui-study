@@ -164,8 +164,8 @@ export default function EventRegistrationPage() {
             <div>
               <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
                 氏名{" "}
-                <span className="text-red-600" aria-label="必須">
-                  *
+                <span className="text-red-600 text-xs" aria-label="必須">
+                  必須
                 </span>
               </label>
               <input
@@ -191,8 +191,8 @@ export default function EventRegistrationPage() {
             <div>
               <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
                 メールアドレス{" "}
-                <span className="text-red-600" aria-label="必須">
-                  *
+                <span className="text-red-600 text-xs" aria-label="必須">
+                  必須
                 </span>
               </label>
               <input
@@ -219,8 +219,8 @@ export default function EventRegistrationPage() {
               <fieldset>
                 <legend className="block text-sm font-semibold text-gray-700 mb-2">
                   参加区分{" "}
-                  <span className="text-red-600" aria-label="必須">
-                    *
+                  <span className="text-red-600 text-xs" aria-label="必須">
+                    必須
                   </span>
                 </legend>
 
