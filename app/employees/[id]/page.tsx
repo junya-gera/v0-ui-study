@@ -151,7 +151,7 @@ export default function EmployeeDetailPage() {
               <dd className="mt-1 text-base text-gray-900">{employee.phone || "-"}</dd>
             </div>
             <div>
-              <dt className="text-sm font-semibold text-gray-600">入社日(不正フォーマット)</dt>
+              <dt className="text-sm font-semibold text-gray-600">入社日</dt>
               <dd className="mt-1 text-base text-gray-900">{employee.hireDate}</dd>
             </div>
             <div className="md:col-span-3">
@@ -163,13 +163,21 @@ export default function EmployeeDetailPage() {
               <dd className="mt-1 text-base text-gray-900">{employee.emergencyContact || "-"}</dd>
             </div>
             <div className="md:col-span-3">
-              <dt className="text-sm font-semibold text-gray-600">趣味 / スキル / 資格 (混在)</dt>
-              <dd className="mt-1 text-base text-gray-900 leading-relaxed">
-                {[
-                  ...(employee.hobbies || []),
-                  ...(employee.skills || []),
-                  ...(employee.qualifications || []),
-                ].join("、") || "-"}
+              <dt className="text-sm font-semibold text-gray-600">趣味</dt>
+              <dd className="mt-1 text-base text-gray-900">
+                {employee.hobbies && employee.hobbies.length > 0 ? employee.hobbies.join("、") : "-"}
+              </dd>
+            </div>
+            <div className="md:col-span-3">
+              <dt className="text-sm font-semibold text-gray-600">主なスキル</dt>
+              <dd className="mt-1 text-base text-gray-900">
+                {employee.skills && employee.skills.length > 0 ? employee.skills.join("、") : "-"}
+              </dd>
+            </div>
+            <div className="md:col-span-3">
+              <dt className="text-sm font-semibold text-gray-600">保有資格</dt>
+              <dd className="mt-1 text-base text-gray-900">
+                {employee.qualifications.length > 0 ? employee.qualifications.join("、") : "なし"}
               </dd>
             </div>
             <div className="md:col-span-3">
