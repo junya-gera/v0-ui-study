@@ -219,7 +219,7 @@ export default function EmployeeDetailPage() {
         </div>
 
         {/* アクションボタン */}
-        <div className="flex items-center justify-between">
+        <div className="flex gap-4 items-center">
           <Link
             href="/employees"
             className="inline-flex items-center px-4 py-2 bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -229,7 +229,7 @@ export default function EmployeeDetailPage() {
 
           <button
             onClick={() => setShowDeleteDialog(true)}
-            className="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+            className="inline-flex items-center px-4 py-2 bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
           >
             社員を削除する
           </button>
@@ -249,13 +249,13 @@ export default function EmployeeDetailPage() {
                   onClick={() => setShowDeleteDialog(false)}
                   className="px-4 py-2 bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
-                  キャンセル
+                  いいえ
                 </button>
                 <button
                   onClick={handleDelete}
                   className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
                 >
-                  削除する
+                  はい
                 </button>
               </div>
             </div>
