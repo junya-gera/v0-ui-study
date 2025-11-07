@@ -45,49 +45,47 @@ export default function EmployeesListPage() {
           </select>
         </div>
 
-        {/* 社員一覧テーブル */}
-        <div className="bg-white rounded-lg shadow-md overflow-hidden">
-          {/* 件数表示ヘッダー */}
-          <div className="flex justify-end items-center px-6 py-3 border-b border-gray-200 bg-white">
-            <p className="text-sm text-gray-600" aria-live="polite">
-              表示件数: <span className="font-semibold text-gray-900">{filteredEmployees.length}</span>件
-            </p>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">
-                    社員番号
-                  </th>
-                  <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">
-                    氏名
-                  </th>
-                  <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">
-                    部署
-                  </th>
-                  <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">
-                    採用区分
-                  </th>
-                  <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">
-                    入社日
-                  </th>
-                  <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">
-                    操作
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {filteredEmployees.length > 0 ? (
-                  filteredEmployees.map((employee) => (
+        {/* 社員一覧テーブル (該当なしなら非表示: 悪いUI例) */}
+        {filteredEmployees.length > 0 && (
+          <div className="bg-white rounded-lg shadow-md overflow-hidden">
+            {/* 件数表示ヘッダー */}
+            <div className="flex justify-end items-center px-6 py-3 border-b border-gray-200 bg-white">
+              <p className="text-sm text-gray-600" aria-live="polite">
+                表示件数: <span className="font-semibold text-gray-900">{filteredEmployees.length}</span>件
+              </p>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="min-w-full divide-y divide-gray-200">
+                <thead className="bg-gray-50">
+                  <tr>
+                    <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">
+                      社員番号
+                    </th>
+                    <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">
+                      氏名
+                    </th>
+                    <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">
+                      部署
+                    </th>
+                    <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">
+                      採用区分
+                    </th>
+                    <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">
+                      入社日
+                    </th>
+                    <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">
+                      操作
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white divide-y divide-gray-200">
+                  {filteredEmployees.map((employee) => (
                     <tr key={employee.id} className="hover:bg-gray-50">
                       <td className="px-6 py-4 whitespace-nowrap text-base text-gray-900">{employee.employeeId}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-base font-medium text-gray-900">{employee.name}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-base text-gray-900">{employee.department}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-base text-gray-900">{employee.employmentType}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-base text-gray-900">
-                        {formatDate(employee.hireDate)}
-                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-base text-gray-900">{formatDate(employee.hireDate)}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-base">
                         <Link
                           href={`/employees/${employee.id}`}
@@ -97,18 +95,12 @@ export default function EmployeesListPage() {
                         </Link>
                       </td>
                     </tr>
-                  ))
-                ) : (
-                  <tr>
-                    <td colSpan={6} className="px-6 py-8 text-center text-gray-500">
-                      該当する社員がいません
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   )
