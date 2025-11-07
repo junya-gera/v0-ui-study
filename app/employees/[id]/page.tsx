@@ -112,108 +112,81 @@ export default function EmployeeDetailPage() {
           </div>
         </div>
 
-        {/* 基本情報セクション */}
+        {/* 情報をごちゃ混ぜにした悪い例セクション */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-          <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200 flex items-center gap-2">
-            基本情報
+          <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+            すべての情報(分類なし)
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
               <dt className="text-sm font-semibold text-gray-600">氏名</dt>
               <dd className="mt-1 text-base text-gray-900">{employee.name}</dd>
+            </div>
+            <div>
+              <dt className="text-sm font-semibold text-gray-600">社員番号</dt>
+              <dd className="mt-1 text-base text-gray-900">{employee.employeeId}</dd>
             </div>
             <div>
               <dt className="text-sm font-semibold text-gray-600">生年月日</dt>
               <dd className="mt-1 text-base text-gray-900">{formatDate(employee.birthDate)}</dd>
             </div>
             <div>
-              <dt className="text-sm font-semibold text-gray-600">性別</dt>
-              <dd className="mt-1 text-base text-gray-900">{employee.gender || "-"}</dd>
+              <dt className="text-sm font-semibold text-gray-600">部署</dt>
+              <dd className="mt-1 text-base text-gray-900">{employee.department}</dd>
             </div>
             <div>
               <dt className="text-sm font-semibold text-gray-600">血液型</dt>
               <dd className="mt-1 text-base text-gray-900">{employee.bloodType || "-"}</dd>
             </div>
             <div>
-              <dt className="text-sm font-semibold text-gray-600">電話番号</dt>
-              <dd className="mt-1 text-base text-gray-900">{employee.phone || "-"}</dd>
-            </div>
-            <div>
-              <dt className="text-sm font-semibold text-gray-600">緊急連絡先</dt>
-              <dd className="mt-1 text-base text-gray-900">{employee.emergencyContact || "-"}</dd>
-            </div>
-            <div className="md:col-span-2">
-              <dt className="text-sm font-semibold text-gray-600">住所</dt>
-              <dd className="mt-1 text-base text-gray-900">{employee.address}</dd>
-            </div>
-            <div className="md:col-span-2">
-              <dt className="text-sm font-semibold text-gray-600">趣味</dt>
-              <dd className="mt-1 text-base text-gray-900">
-                {employee.hobbies && employee.hobbies.length > 0 ? employee.hobbies.join("、") : "-"}
-              </dd>
-            </div>
-            <div className="md:col-span-2">
-              <dt className="text-sm font-semibold text-gray-600">自己紹介</dt>
-              <dd className="mt-1 text-base text-gray-900 leading-relaxed whitespace-pre-line">
-                {employee.selfIntro || "-"}
-              </dd>
-            </div>
-          </div>
-        </div>
-
-        {/* 管理情報セクション */}
-        <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-          <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200 flex items-center gap-2">
-            管理情報
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <dt className="text-sm font-semibold text-gray-600">社員番号</dt>
-              <dd className="mt-1 text-base text-gray-900">{employee.employeeId}</dd>
-            </div>
-            <div>
-              <dt className="text-sm font-semibold text-gray-600">部署</dt>
-              <dd className="mt-1 text-base text-gray-900">{employee.department}</dd>
-            </div>
-            <div>
               <dt className="text-sm font-semibold text-gray-600">役職</dt>
               <dd className="mt-1 text-base text-gray-900">{employee.position || "-"}</dd>
-            </div>
-            <div>
-              <dt className="text-sm font-semibold text-gray-600">等級 / グレード</dt>
-              <dd className="mt-1 text-base text-gray-900">{employee.grade || "-"}</dd>
-            </div>
-            <div>
-              <dt className="text-sm font-semibold text-gray-600">上長</dt>
-              <dd className="mt-1 text-base text-gray-900">{employee.manager || "-"}</dd>
             </div>
             <div>
               <dt className="text-sm font-semibold text-gray-600">勤務状況</dt>
               <dd className="mt-1 text-base text-gray-900">{employee.employmentStatus || "-"}</dd>
             </div>
             <div>
+              <dt className="text-sm font-semibold text-gray-600">電話番号</dt>
+              <dd className="mt-1 text-base text-gray-900">{employee.phone || "-"}</dd>
+            </div>
+            <div>
+              <dt className="text-sm font-semibold text-gray-600">入社日(不正フォーマット)</dt>
+              <dd className="mt-1 text-base text-gray-900">{employee.hireDate}</dd>
+            </div>
+            <div className="md:col-span-3">
+              <dt className="text-sm font-semibold text-gray-600">住所</dt>
+              <dd className="mt-1 text-base text-gray-900">{employee.address}</dd>
+            </div>
+            <div className="md:col-span-3">
+              <dt className="text-sm font-semibold text-gray-600">緊急連絡先</dt>
+              <dd className="mt-1 text-base text-gray-900">{employee.emergencyContact || "-"}</dd>
+            </div>
+            <div className="md:col-span-3">
+              <dt className="text-sm font-semibold text-gray-600">趣味 / スキル / 資格 (混在)</dt>
+              <dd className="mt-1 text-base text-gray-900 leading-relaxed">
+                {[
+                  ...(employee.hobbies || []),
+                  ...(employee.skills || []),
+                  ...(employee.qualifications || []),
+                ].join("、") || "-"}
+              </dd>
+            </div>
+            <div className="md:col-span-3">
+              <dt className="text-sm font-semibold text-gray-600">自己紹介</dt>
+              <dd className="mt-1 text-base text-gray-900 whitespace-pre-line">{employee.selfIntro || "-"}</dd>
+            </div>
+            <div>
+              <dt className="text-sm font-semibold text-gray-600">性別</dt>
+              <dd className="mt-1 text-base text-gray-900">{employee.gender || "-"}</dd>
+            </div>
+            <div>
               <dt className="text-sm font-semibold text-gray-600">勤務拠点</dt>
               <dd className="mt-1 text-base text-gray-900">{employee.workLocation || "-"}</dd>
             </div>
             <div>
-              <dt className="text-sm font-semibold text-gray-600">採用区分</dt>
-              <dd className="mt-1 text-base text-gray-900">{employee.employmentType}</dd>
-            </div>
-            <div>
-              <dt className="text-sm font-semibold text-gray-600">入社日</dt>
-              <dd className="mt-1 text-base text-gray-900">{formatDate(employee.hireDate)}</dd>
-            </div>
-            <div className="md:col-span-2">
-              <dt className="text-sm font-semibold text-gray-600">保有資格</dt>
-              <dd className="mt-1 text-base text-gray-900">
-                {employee.qualifications.length > 0 ? employee.qualifications.join(", ") : "なし"}
-              </dd>
-            </div>
-            <div className="md:col-span-2">
-              <dt className="text-sm font-semibold text-gray-600">主なスキル</dt>
-              <dd className="mt-1 text-base text-gray-900">
-                {employee.skills && employee.skills.length > 0 ? employee.skills.join("、") : "-"}
-              </dd>
+              <dt className="text-sm font-semibold text-gray-600">上長</dt>
+              <dd className="mt-1 text-base text-gray-900">{employee.manager || "-"}</dd>
             </div>
           </div>
         </div>
