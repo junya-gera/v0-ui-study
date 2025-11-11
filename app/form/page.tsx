@@ -2,6 +2,7 @@
 
 import type React from "react"
 import { useState } from "react"
+import Link from "next/link"
 
 export default function EventRegistrationPage() {
   const [formData, setFormData] = useState({
@@ -146,14 +147,16 @@ export default function EventRegistrationPage() {
           <h2 className="text-xl font-bold text-gray-900 mb-3 p-6 pb-0">注意事項</h2>
           <div className="text-gray-700 p-6 pt-0 leading-relaxed text-sm space-y-4">
             <p>
-              参加URLは開催前日にメール送付されます。受信トレイだけでなくプロモーションや迷惑メールも必ず確認してください。カメラONは任意ですが、帯域やPC負荷で音声が不安定になることがあるため自己判断でお願いします。録画・録音は一律禁止です。
+              <span className="text-blue-600 underline">参加URL</span>は開催前日にメール送付されます。受信トレイだけでなくプロモーションや迷惑メールも必ず確認してください。カメラONは任意ですが、帯域やPC負荷で音声が不安定になることがあるため自己判断でお願いします。録画・録音は一律禁止です。
             </p>
             <p>
               質問はチャットで随時どうぞ。ただ断片的な連投が多いと拾い切れないため、簡潔にまとめて一度で送る方が結果的に回答が得やすいです。通信不良時は Zoom 完全再起動・不要な VPN 切断など基本的な自己対処を行ってください。
             </p>
           </div>
           <div className="mt-4 p-6 pt-0">
-            <span className="text-blue-600 underline cursor-pointer">過去のイベントレポートはこちら</span>
+            <Link href="/reports" className="cursor-pointer">
+              過去のイベントレポートはこちら
+            </Link>
           </div>
         </div>
 
