@@ -109,7 +109,7 @@ export default function EventRegistrationPage() {
           </p>
           <button
             onClick={handleReturnHome}
-            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-md shadow-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            className="cursor-pointer bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-md shadow-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
           >
             ホームへ戻る
           </button>
@@ -149,7 +149,7 @@ export default function EventRegistrationPage() {
           </ul>
 
           <div className="mt-4">
-            <a href="#" className="text-blue-600 underline hover:text-blue-800 transition-colors">
+            <a href="/reports" className="text-blue-600 underline hover:text-blue-800 transition-colors">
               過去のイベントレポートはこちら
             </a>
           </div>
@@ -259,7 +259,7 @@ export default function EventRegistrationPage() {
                     <button
                       type="button"
                       onClick={() => setShowLTInfo(!showLTInfo)}
-                      className="ml-2 w-5 h-5 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center text-gray-600 text-sm font-bold transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="cursor-pointer ml-2 w-5 h-5 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center text-gray-600 text-sm font-bold transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
                       aria-label="LT枠の説明を表示"
                       aria-expanded={showLTInfo}
                     >
@@ -286,7 +286,7 @@ export default function EventRegistrationPage() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-semibold py-3 px-6 rounded-md shadow-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed"
+              className="cursor-pointer w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-semibold py-3 px-6 rounded-md shadow-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed"
             >
               {isLoading ? (
                 <span className="flex items-center justify-center gap-2">
