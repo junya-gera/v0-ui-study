@@ -269,7 +269,7 @@ export default function EventRegistrationPage() {
               type="submit"
               className="w-full text-blue-600 font-semibold py-3 px-6 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             >
-              参加登録する
+              OK
             </button>
           </form>
         </div>
