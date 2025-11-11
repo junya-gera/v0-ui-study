@@ -94,22 +94,22 @@ export default function EventRegistrationPage() {
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex items-center justify-center p-4">
-        <div className="bg-white rounded-lg shadow-lg p-8 max-w-lg w-full text-center">
-          <div className="mb-4">
-            <svg className="w-16 h-16 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex items-center justify-center p-4 sm:p-6">
+        <div className="bg-white rounded-lg shadow-lg p-6 sm:p-8 max-w-md sm:max-w-lg w-full text-center">
+          <div className="mb-3 sm:mb-4">
+            <svg className="w-14 h-14 sm:w-16 sm:h-16 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">登録完了</h2>
-          <p className="text-gray-600 leading-relaxed mb-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">登録完了</h2>
+          <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-5 sm:mb-6">
             参加登録が完了しました。
             <br />
             ご登録いただいたメールアドレスに確認メールをお送りしました。
           </p>
           <button
             onClick={handleReturnHome}
-            className="cursor-pointer bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-md shadow-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            className="cursor-pointer bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 sm:py-3 px-5 sm:px-6 rounded-md shadow-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
           >
             ホームへ戻る
           </button>
@@ -119,19 +119,21 @@ export default function EventRegistrationPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white py-8 px-4">
-      <main className="max-w-lg mx-auto">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white py-6 sm:py-8 px-3 sm:px-4">
+      <main className="max-w-xl mx-auto w-full space-y-6 sm:space-y-8">
         {/* イベントタイトル */}
-        <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-          <h1 className="text-3xl font-bold text-gray-900 mb-4 text-balance">モダンWeb開発 勉強会</h1>
+        <div className="bg-white rounded-lg shadow-md p-5 sm:p-6">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4 text-balance leading-tight">
+            モダンWeb開発 勉強会
+          </h1>
 
           {/* イベント概要 */}
-          <div className="space-y-2 text-gray-700 leading-relaxed">
-            <p className="flex items-center gap-2">
+          <div className="space-y-2 text-gray-700 leading-relaxed text-sm sm:text-base">
+            <p className="flex items-center gap-2 flex-wrap">
               <span className="font-semibold">日時:</span>
               <span>2025年11月15日（土）14:00〜17:00</span>
             </p>
-            <p className="flex items-center gap-2">
+            <p className="flex items-center gap-2 flex-wrap">
               <span className="font-semibold">場所:</span>
               <span>オンライン（Zoom）</span>
             </p>
@@ -139,9 +141,9 @@ export default function EventRegistrationPage() {
         </div>
 
         {/* 注意事項 */}
-        <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-          <h2 className="text-xl font-bold text-gray-900 mb-3">注意事項</h2>
-          <ul className="space-y-2 text-gray-700 leading-relaxed list-disc list-inside">
+        <div className="bg-white rounded-lg shadow-md p-5 sm:p-6">
+          <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">注意事項</h2>
+          <ul className="space-y-2 text-gray-700 leading-relaxed list-disc list-inside text-sm sm:text-base">
             <li>参加URLは開催前日にメールでお送りします</li>
             <li>カメラOFFでの参加も可能です</li>
             <li>録画・録音はご遠慮ください</li>
@@ -149,15 +151,15 @@ export default function EventRegistrationPage() {
           </ul>
 
           <div className="mt-4">
-            <a href="/reports" className="text-blue-600 underline hover:text-blue-800 transition-colors">
+            <a href="/reports" className="text-sm sm:text-base text-blue-600 underline hover:text-blue-800 transition-colors">
               過去のイベントレポートはこちら
             </a>
           </div>
         </div>
 
         {/* 参加登録フォーム */}
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">参加登録フォーム</h2>
+        <div className="bg-white rounded-lg shadow-md p-5 sm:p-6">
+          <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-4">参加登録フォーム</h2>
 
           <form onSubmit={handleSubmit} className="space-y-5">
             {/* 氏名 */}
@@ -173,7 +175,7 @@ export default function EventRegistrationPage() {
                 id="name"
                 value={formData.name}
                 onChange={(e) => handleInputChange("name", e.target.value)}
-                className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                   errors.name ? "border-red-500" : "border-gray-300"
                 }`}
                 aria-required="true"
@@ -181,7 +183,7 @@ export default function EventRegistrationPage() {
                 aria-describedby={errors.name ? "name-error" : undefined}
               />
               {errors.name && (
-                <p id="name-error" className="mt-1 text-sm text-red-600" role="alert">
+                <p id="name-error" className="mt-1 text-xs sm:text-sm text-red-600" role="alert">
                   {errors.name}
                 </p>
               )}
@@ -200,7 +202,7 @@ export default function EventRegistrationPage() {
                 id="email"
                 value={formData.email}
                 onChange={(e) => handleInputChange("email", e.target.value)}
-                className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                   errors.email ? "border-red-500" : "border-gray-300"
                 }`}
                 aria-required="true"
@@ -208,7 +210,7 @@ export default function EventRegistrationPage() {
                 aria-describedby={errors.email ? "email-error" : undefined}
               />
               {errors.email && (
-                <p id="email-error" className="mt-1 text-sm text-red-600" role="alert">
+                <p id="email-error" className="mt-1 text-xs sm:text-sm text-red-600" role="alert">
                   {errors.email}
                 </p>
               )}
@@ -259,7 +261,7 @@ export default function EventRegistrationPage() {
                     <button
                       type="button"
                       onClick={() => setShowLTInfo(!showLTInfo)}
-                      className="cursor-pointer ml-2 w-5 h-5 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center text-gray-600 text-sm font-bold transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="cursor-pointer ml-2 w-5 h-5 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center text-gray-600 text-xs font-bold transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
                       aria-label="LT枠の説明を表示"
                       aria-expanded={showLTInfo}
                     >
@@ -268,14 +270,14 @@ export default function EventRegistrationPage() {
                   </div>
 
                   {showLTInfo && (
-                    <div className="ml-6 p-3 bg-blue-50 border-l-4 border-blue-500 text-sm text-gray-700 leading-relaxed">
+                    <div className="ml-6 p-3 bg-blue-50 border-l-4 border-blue-500 text-xs sm:text-sm text-gray-700 leading-relaxed">
                       5分間の発表準備が必要です。テーマは自由ですが、Web開発に関連する内容をお願いします。
                     </div>
                   )}
                 </div>
 
                 {errors.participationType && (
-                  <p className="mt-2 text-sm text-red-600" role="alert">
+                  <p className="mt-2 text-xs sm:text-sm text-red-600" role="alert">
                     {errors.participationType}
                   </p>
                 )}
@@ -286,7 +288,7 @@ export default function EventRegistrationPage() {
             <button
               type="submit"
               disabled={isLoading}
-              className="cursor-pointer w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-semibold py-3 px-6 rounded-md shadow-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed"
+              className="cursor-pointer w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-semibold py-2.5 sm:py-3 px-5 sm:px-6 rounded-md shadow-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed"
             >
               {isLoading ? (
                 <span className="flex items-center justify-center gap-2">
@@ -310,10 +312,10 @@ export default function EventRegistrationPage() {
                       d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                     ></path>
                   </svg>
-                  送信中...
+                  <span className="text-sm sm:text-base">送信中...</span>
                 </span>
               ) : (
-                "参加登録する"
+                <span className="text-sm sm:text-base">参加登録する</span>
               )}
             </button>
           </form>
