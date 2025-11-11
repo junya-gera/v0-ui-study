@@ -128,7 +128,7 @@ export default function EmployeeDetailPage() {
             </div>
             <div>
               <dt className="text-sm font-semibold text-gray-600">生年月日</dt>
-              <dd className="mt-1 text-base text-gray-900">{formatDate(employee.birthDate)}</dd>
+              <dd className="mt-1 text-base text-gray-900">{employee.birthDate}</dd>
             </div>
             <div>
               <dt className="text-sm font-semibold text-gray-600">部署</dt>
