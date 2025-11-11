@@ -141,16 +141,17 @@ export default function EventRegistrationPage() {
           </div>
         </div>
 
-        {/* 注意事項 */}
+        {/* 注意事項（わざと読みにくく冗長にした悪いUI） */}
         <div className="bg-white rounded-lg shadow-md p-0 mb-6">
           <h2 className="text-xl font-bold text-gray-900 mb-3 p-6 pb-0">注意事項</h2>
-          <ul className="space-y-0 text-gray-700 leading-none list-disc list-inside p-6 pt-0">
-            <li>参加URLは開催前日にメールでお送りします</li>
-            <li>カメラOFFでの参加も可能です</li>
-            <li>録画・録音はご遠慮ください</li>
-            <li>質問はチャットでお気軽にどうぞ</li>
-          </ul>
-
+          <div className="text-gray-700 p-6 pt-0 leading-relaxed text-sm space-y-4">
+            <p>
+              参加URLは開催前日にメール送付されます。受信トレイだけでなくプロモーションや迷惑メールも必ず確認してください。カメラONは任意ですが、帯域やPC負荷で音声が不安定になることがあるため自己判断でお願いします。録画・録音は一律禁止です。
+            </p>
+            <p>
+              質問はチャットで随時どうぞ。ただ断片的な連投が多いと拾い切れないため、簡潔にまとめて一度で送る方が結果的に回答が得やすいです。通信不良時は Zoom 完全再起動・不要な VPN 切断など基本的な自己対処を行ってください。
+            </p>
+          </div>
           <div className="mt-4 p-6 pt-0">
             <span className="text-blue-600 underline cursor-pointer">過去のイベントレポートはこちら</span>
           </div>
