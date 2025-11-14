@@ -1,33 +1,25 @@
 "use client"
 
 import { useState } from "react"
-import { useParams } from "next/navigation"
+import { useParams, notFound } from "next/navigation"
 import Link from "next/link"
 import { EMPLOYEES } from "@/lib/mockData"
 
 export default function EmployeeDetailPage() {
   const params = useParams()
-  const id = Number(params.id)
+  const rawId = params.id
+  const id = Number(rawId)
+  // ID が数値化できない場合も 404
+  if (Number.isNaN(id)) {
+    notFound()
+  }
   const employee = EMPLOYEES.find((emp) => emp.id === id)
 
   const [showDeleteDialog, setShowDeleteDialog] = useState(false)
 
+  // 該当社員が存在しない場合は 404（悪い UI の要望に合わせ）
   if (!employee) {
-    return (
-      <div className="min-h-screen bg-gray-50 py-8 px-4">
-        <div className="mx-auto max-w-4xl">
-          <div className="bg-white rounded-lg shadow-md p-8 text-center">
-            <p className="text-gray-600 text-lg mb-4">社員が見つかりません</p>
-            <Link
-              href="/employees"
-              className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors"
-            >
-              一覧に戻る
-            </Link>
-          </div>
-        </div>
-      </div>
-    )
+    notFound()
   }
 
   // 日付フォーマット関数
