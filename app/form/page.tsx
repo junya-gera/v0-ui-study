@@ -19,7 +19,7 @@ export default function EventRegistrationPage() {
 
   const [showGenericError, setShowGenericError] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
-  const [showLTInfo, setShowLTInfo] = useState(false)
+  // 悪いUI例: 情報表示を hover のみで制御し、タップでは出せないよう state 管理を排除
   const [isSubmitted, setIsSubmitted] = useState(false)
 
   const validateForm = () => {
@@ -231,7 +231,7 @@ export default function EventRegistrationPage() {
                     </label>
                   </div>
 
-                  <div className="flex items-start">
+                  <div className="flex items-start group relative">
                     <div className="flex items-center">
                       <input
                         type="radio"
@@ -246,24 +246,18 @@ export default function EventRegistrationPage() {
                         LT枠
                       </label>
                     </div>
-
-                    <button
-                      type="button"
-                      onMouseEnter={() => setShowLTInfo(true)}
-                      onMouseLeave={() => setShowLTInfo(false)}
-                      className="ml-2 w-5 h-5 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center text-gray-600 text-sm font-bold transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      aria-label="LT枠の説明を表示"
-                      aria-expanded={showLTInfo}
+                    {/* 悪いUI: hover しないと説明が見えない。スマホ・キーボードではアクセス不能 */}
+                    <span
+                      className="ml-2 w-5 h-5 rounded-full bg-gray-200 group-hover:bg-gray-300 flex items-center justify-center text-gray-600 text-sm font-bold select-none"
+                      aria-hidden="true"
                     >
                       ?
-                    </button>
-                  </div>
-
-                  {showLTInfo && (
-                    <div className="ml-6 p-3 bg-blue-50 border-l-4 border-blue-500 text-sm text-gray-700 leading-relaxed">
+                    </span>
+                    {/* ツールチップを group の子要素にして初めて group-hover が効く */}
+                    <div className="absolute left-0 top-full mt-2 ml-6 p-3 bg-blue-50 border-l-4 border-blue-500 text-sm text-gray-700 leading-relaxed hidden group-hover:block w-[360px] shadow-md">
                       5分間の発表準備が必要です。テーマは自由ですが、Web開発に関連する内容をお願いします。
                     </div>
-                  )}
+                  </div>
                 </div>
               </fieldset>
             </div>
